@@ -253,7 +253,7 @@ function install_mysql {
 function install_redis {
 
 	echo -e "5. 安装 Redis 数据库"
-	redis-server --version &> /dev/null || yum localinstall -y ./packages/redis/*
+	redis-server --version &> /dev/null || yum localinstall -y ./packages/redis/* &> /dev/null
 
 	echo -e "\t1）Redis 基本配置：" 
 	echo -e "\t\t\c"

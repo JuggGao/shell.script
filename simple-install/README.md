@@ -67,9 +67,8 @@ packages/
 │   ├── openssl-1.0.2k-16.el7_6.1.x86_64.rpm
 │   └── openssl-libs-1.0.2k-16.el7_6.1.x86_64.rpm
 ├── redis
-│   ├── jemalloc-3.6.0-1.el7.x86_64.rpm
 │   ├── logrotate-3.8.6-17.el7.x86_64.rpm
-│   └── redis-3.2.12-2.el7.x86_64.rpm
+│   └── redis-5.0.4-1.el7.remi.x86_64.rpm
 └── tomcat
     ├── apache-tomcat-8.5.40.tar.gz
     └── tomcat.service
