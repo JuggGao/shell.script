@@ -9,9 +9,9 @@ mysql_back_dir="/tmp/mysql_backup"
 date=$(date +%F)
 
 function env_check {
-    clinet_install=$(rpm -qa | grep -E "^mysql-.*-client-.*")
+    clinet_install=$(command -v mysqldump)
     if [[ $? != 0 ]]; then
-        echo -e "[ Error ] MySQL 客户端程序未发现,请下载 mysql-client 程序"
+        echo -e "[ Error ] mysqldump not found."
         exit 1
     fi
 
@@ -21,13 +21,13 @@ function env_check {
 }
 
 function mysql_dump {
-    mkdir ${mysql_back_dir}/${date}
+    [[ -d  "${mysql_back_dir}/${date}" ]] || mkdir ${mysql_back_dir}/${date}
     for db in ${mysql_db[@]}; do
-        mysqldump -h${mysql_host} -P${mysql_port} -u${mysql_user} -p${mysql_passwd}  ${db} > ${mysql_back_dir}/${date}/${db}.sql
+        mysqldump -h${mysql_host} -P${mysql_port} -u${mysql_user} -p${mysql_passwd} --set-gtid-purged=OFF --column-statistics=0 ${db}  | gzip > ${mysql_back_dir}/${date}/${db}.sql.gz
         if  [[ $? != 0 ]]; then
-            echo -e "[$date] ${db} 备份失败" >> ${mysql_back_dir}/dump.log
+            echo -e "[$date] ${db} backup failed." >> ${mysql_back_dir}/dump.log
         else
-            echo -e "[$date] ${db} 备份成功" >> ${mysql_back_dir}/dump.log
+            echo -e "[$date] ${db} successes." >> ${mysql_back_dir}/dump.log
         fi
     done
 }
