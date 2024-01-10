@@ -1,20 +1,20 @@
 
 ```shell
-source <(curl -sL https://python3.netlify.app/install.sh)
+source <(curl -sL https://raw.githubusercontent.com/jugggao/shell-scripts/master/install-python3/install.sh)
 ```
 
 ```shell
-source <(curl -sL https://python3.netlify.app/install.sh) --latest
+source <(curl -sL https://raw.githubusercontent.com/jugggao/shell-scripts/master/install-python3/install.sh) --latest
 ```
 
 ```shell
-source <(curl -sL https://python3.netlify.app/install.sh) -v 3.6.5
+source <(curl -sL https://raw.githubusercontent.com/jugggao/shell-scripts/master/install-python3/install.sh) -v 3.6.5
 ```
 
 ```shell
-source <(curl -sL https://python3.netlify.app/install.sh) --nopip
+source <(curl -sL https://raw.githubusercontent.com/jugggao/shell-scripts/master/install-python3/install.sh) --nopip
 ```
 
 ```shell
-source <(curl -sL https://python3.netlify.app/install.sh) --latest --enable-optimizations
+source <(curl -sL https://raw.githubusercontent.com/jugggao/shell-scripts/master/install-python3/install.sh) --latest --enable-optimizations
 ```
