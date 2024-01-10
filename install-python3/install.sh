@@ -1,4 +1,4 @@
-#!bin/bash
+#!/usr/bin/env bash
 
 # cancel centos alias
 [[ -f /etc/redhat-release ]] && unalias -a
